@@ -8,22 +8,13 @@ This adjacency matrix shows how foreign aid flowed from 25 donor countries to 12
 
 ## Setup and running
 
-You only need a web browser and a way to serve static files. D3 v7 loads from a CDN, so there's nothing to install.
-
-1. Clone the repository:
-
-   ```bash
-   git clone <your-repo-url>
-   cd <your-repo-folder>
-   ```
-
-2. Start a local web server in the project folder. Python 3 is the easiest way:
+1. Start a local web server in the project folder. Python 3 is the easiest way:
 
    ```bash
    python3 -m http.server 8000
    ```
 
-3. Open http://localhost:8000 in your browser.
+2. Open http://localhost:8000 in your browser.
 
 > **Note:** Opening `index.html` directly (by double-clicking it) won't work, because browsers block `d3.csv` from loading a local file over `file://`. Always open the page through a local server.
 
