@@ -4,7 +4,7 @@ An interactive D3.js adjacency matrix of foreign aid flows from donor countries 
 
 ## About the visualization
 
-This adjacency matrix shows how foreign aid flowed from 25 donor countries to 129 recipients between 1991 and 2010. Each column is a donor and each row is a recipient. Each cell is colored by the total amount the donor gave that recipient, using a log scale where darker blue means more aid. Gray cells mark pairs with no recorded aid, and most of the matrix is gray. Recipients are grouped into countries, regions, and unspecified aid. Both axes are sorted by total amount, so the largest flows sit in the top-left corner. There, Germany and the United States stand out as the largest donors, and Indonesia as the top recipient country. You can filter by year range and aid purpose, and hovering over a cell shows the exact total and the number of projects.
+This adjacency matrix shows aid from 25 donor countries to 129 recipients between 1991 and 2010. Each column is a donor and each row is a recipient. Each cell is colored by the total amount the donor gave the recipient, where darker blue means more aid. Gray cells represent pairs with no recorded aid. Both axes are sorted by the total amount, so the largest donors and recipients sit in the top-left corner. We can see that Germany and the United States are the largest donors, and Indonesia is the top recipient country. You can filter by year range and aid purpose, and hovering over a cell shows the exact total and the number of projects.
 
 ## Setup and running
 
