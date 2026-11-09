@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Foreign Aid Matrix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="viz-root">
+    <header class="page-head">
+      <h1>Foreign aid flows, donor to recipient</h1>
+    </header>
+
+    <section class="controls" aria-label="Filters">
+      <label>Years
+        <select id="yearFrom" aria-label="From year"></select>
+        <span aria-hidden="true">–</span>
+        <select id="yearTo" aria-label="To year"></select>
+      </label>
+      <label>Purpose
+        <select id="purpose"></select>
+      </label>
+      <label>Sort
+        <select id="sort">
+          <option value="total">By total amount</option>
+          <option value="name">A–Z</option>
+        </select>
+      </label>
+      <span id="count" class="muted"></span>
+    </section>
+
+    <section id="summary" class="cards" aria-label="Summary"></section>
+
+    <div class="legend-row">
+      <span class="muted">Total given</span>
+      <svg id="legend" viewBox="0 0 300 34" width="300" height="34" role="img" aria-label="Color legend"></svg>
+      <span class="swatch empty-swatch" aria-hidden="true"></span><span class="muted">No recorded aid</span>
+    </div>
+
+    <div class="matrix-wrap" id="matrixWrap">
+      <div class="matrix-head"><svg id="head"></svg></div>
+      <svg id="body"></svg>
+      <p id="empty" class="muted empty-msg" hidden>No records match this selection.</p>
+    </div>
+  </main>
+
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

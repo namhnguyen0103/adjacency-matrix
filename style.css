@@ -1,0 +1,127 @@
+:root {
+  color-scheme: light;
+  --surface-0: #ffffff;
+  --surface-1: #ffffff;
+  --text-primary: #0b0b0b;
+  --text-secondary: #52514e;
+  --text-muted: #77766f;
+  --rule: #e4e3de;
+  --empty: #efeeea;
+  --bar: #2a78d6;
+  --focus: #0b0b0b;
+  --tooltip-bg: #0b0b0b;
+  --tooltip-text: #f0efec;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --surface-0: #111110;
+    --surface-1: #1a1a19;
+    --text-primary: #f0efec;
+    --text-secondary: #c3c2b7;
+    --text-muted: #96958c;
+    --rule: #30302d;
+    --empty: #242422;
+    --bar: #3987e5;
+    --focus: #f0efec;
+    --tooltip-bg: #f0efec;
+    --tooltip-text: #0b0b0b;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface-0: #111110;
+  --surface-1: #1a1a19;
+  --text-primary: #f0efec;
+  --text-secondary: #c3c2b7;
+  --text-muted: #96958c;
+  --rule: #30302d;
+  --empty: #242422;
+  --bar: #3987e5;
+  --focus: #f0efec;
+  --tooltip-bg: #f0efec;
+  --tooltip-text: #0b0b0b;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.viz-root {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+h1 { font-size: 22px; margin: 0 0 16px; letter-spacing: -0.01em; }
+.muted { color: var(--text-muted); }
+
+.controls {
+  display: flex; flex-wrap: wrap; gap: 10px 20px; align-items: center;
+  margin-bottom: 16px;
+}
+.controls label { display: flex; align-items: center; gap: 6px; color: var(--text-secondary); }
+select {
+  font: inherit; color: var(--text-primary); background: var(--surface-1);
+  border: 1px solid var(--rule); border-radius: 6px; padding: 4px 8px;
+}
+#purpose { width: 320px; max-width: 100%; min-width: 0; flex: 1 1 auto; }
+.controls label { max-width: 100%; min-width: 0; }
+#legend { width: min(300px, 100%); height: auto; }
+
+.cards {
+  display: grid; gap: 12px; margin-bottom: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 280px));
+}
+.card {
+  background: var(--surface-1); border: 1px solid var(--rule); border-radius: 10px;
+  padding: 12px 14px;
+}
+.card .k { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .04em; }
+.card .name { font-size: 17px; font-weight: 600; margin-top: 2px; }
+.card .v { color: var(--text-secondary); font-variant-numeric: tabular-nums; }
+
+.legend-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
+.swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; }
+.empty-swatch { background: var(--empty); border: 1px solid var(--rule); margin-left: 12px; }
+
+.matrix-wrap {
+  position: relative;
+  background: var(--surface-1);
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 78vh;
+}
+.matrix-head {
+  position: sticky; top: 0; z-index: 2;
+  background: var(--surface-1);
+  border-bottom: 1px solid var(--rule);
+  width: max-content;
+}
+.matrix-wrap svg { display: block; }
+.empty-msg { padding: 24px; }
+
+svg text { fill: var(--text-secondary); font-size: 11px; }
+svg .title-text { fill: var(--text-muted); font-size: 11px; }
+svg .group-text { fill: var(--text-primary); font-size: 12px; font-weight: 600; }
+svg .value-text { fill: var(--text-secondary); font-size: 10px; font-variant-numeric: tabular-nums; }
+svg .axis-line { stroke: var(--rule); }
+svg .cell { stroke: var(--surface-1); stroke-width: 2; }
+svg .cell.empty { fill: var(--empty); }
+svg .hi { fill: none; stroke: var(--focus); pointer-events: none; }
+svg .hi-band { stroke-width: 1; stroke-opacity: .55; }
+svg .hi-cell { stroke-width: 2; }
+svg .label.active { fill: var(--text-primary); font-weight: 600; }
+svg .hit { fill: transparent; }
+
+.tooltip {
+  position: fixed; z-index: 10; pointer-events: none;
+  background: var(--tooltip-bg); color: var(--tooltip-text);
+  padding: 8px 10px; border-radius: 8px; font-size: 12px; line-height: 1.4;
+  max-width: 280px; box-shadow: 0 4px 16px rgb(0 0 0 / .18);
+}
+.tooltip b { font-variant-numeric: tabular-nums; }
+.tooltip .t { font-weight: 600; margin-bottom: 2px; }
